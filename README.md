@@ -1,5 +1,10 @@
 # Awesome-Steering-Vectors
-## Steering Vectors in AI: History, Progression, Variants, & Applications
+
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome Steering Vectors Banner" width="100%">
+</p>
+
+## 🧭 Steering Vectors in AI: History, Progression, Variants, & Applications
 
 Steering Vectors—also referred to as activation steering vectors, concept directions, or representation engineering interventions—represent a cutting-edge runtime alignment and control paradigm in Artificial Intelligence. Instead of modifying an AI system's core parameters permanently via expensive fine-tuning (SFT/DPO), steering vectors manipulate model behavior *on-the-fly* during the inference generation phase. 
 
@@ -7,7 +12,7 @@ By identifying specific directional vectors within a model's high-dimensional hi
 
 ---
 
-## 1. The Macro Chronological Evolution
+## 1. 📈 The Macro Chronological Evolution
 
 The technical framework governing model representation manipulation has transitioned from early parametric concept bottlenecks to task-specific prompt vectors, moving toward modern sparse autoencoder-driven dictionary steering.
 
@@ -26,7 +31,7 @@ flowchart LR
 
 ---
 
-## 2. Core Functional & Interventional Variants
+## 2. 🧩 Core Functional & Interventional Variants
 
 Steering Vector architectures are strictly categorized based on the mathematical space they target and how the scalar injection values are calculated.
 
@@ -38,7 +43,7 @@ Steering Vector architectures are strictly categorized based on the mathematical
 
 ---
 
-## 3. Structural Injection Architectures & Caching Horizons
+## 3. 🏗️ Structural Injection Architectures & Caching Horizons
 
 Depending on the operational constraints of the runtime serving cluster, steering vector interventions are managed across distinct structural boundaries.
 
@@ -61,7 +66,7 @@ flowchart LR
 
 ---
 
-## 4. Production Engineering Challenges & Hardware Solutions
+## 4. ⚡ Production Engineering Challenges & Hardware Solutions
 
 Enforcing complex mathematical tensor modifications across live commercial cloud-serving layers introduces unique performance bottlenecks and stability boundaries.
 
@@ -72,7 +77,7 @@ Enforcing complex mathematical tensor modifications across live commercial cloud
 
 ---
 
-## 5. Frontier Real-World AI Applications
+## 5. 🚀 Frontier Real-World AI Applications
 
 | Application | Details | Year First Used | First Used Paper |
 | :--- | :--- | :--- | :--- |
@@ -82,7 +87,7 @@ Enforcing complex mathematical tensor modifications across live commercial cloud
 
 ---
 
-## References
+## 📚 References
 1. Kim, B., et al. (2018). Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (TCAV). *International Conference on Machine Learning (ICML)*, 2668-2677.
 2. Bau, D., et al. (2020). Network dissection: Quantifying interpretability of deep visual representations. *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*.
 3. Elhage, N., et al. (2021). A mathematical framework for transformer circuits. *Transformer Circuits Thread Monograph*.
