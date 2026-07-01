@@ -11,8 +11,11 @@ By identifying specific directional vectors within a model's high-dimensional hi
 
 The technical framework governing model representation manipulation has transitioned from early parametric concept bottlenecks to task-specific prompt vectors, moving toward modern sparse autoencoder-driven dictionary steering.
 
-```
-[Concept Bottleneck Models (~2020)] ───> [Representation Engineering (RepE, 2023)] ───> [Dictionary Steering via SAEs (2024-Present)](Rigid Supervised Attribute Arrays)          (Coarse Multi-Layer Contrastive Shifts)          (Monosemantic Ultra-Granular Concept Clamping)
+```mermaid
+flowchart LR
+    A["Concept Bottleneck Models (~2020)<br/>(Rigid Supervised Attribute Arrays)"]
+    --> B["Representation Engineering (RepE, 2023)<br/>(Coarse Multi-Layer Contrastive Shifts)"]
+    --> C["Dictionary Steering via SAEs (2024-Present)<br/>(Monosemantic Ultra-Granular Concept Clamping)"]
 ```
 
 *   **The Supervised Concept Bottleneck Era (~2020–2022)**
