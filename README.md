@@ -58,8 +58,16 @@ Depending on the operational constraints of the runtime serving cluster, steerin
 *   **Prompt-Derived Virtual Vector Caching**
     *   *Profile:* Bypasses mathematical dictionary calculations. It takes a highly descriptive instruction prompt (e.g., `"Write this document like a maximum-security regulatory auditor"`), runs a single forward pass to capture its terminal activation topology, saves that matrix slice as a **virtual steering vector**, and applies it as a constant bias to subsequent generic user prompts to skip prompt length inflation.
 
-```
-Unified Inference Optimization Matrix[Incoming User Prompt] ───> [Transformer Hidden Layers 1-12] ───> [Inject Activation Steering Vector (+α · v)]│▼[Clean Markdown Output] <── [Softmax Sampling Head] <─── [Transformer Layers 13-32 Residual Loop]
+```mermaid
+flowchart LR
+    subgraph U["Unified Inference Optimization Matrix"]
+        A["Incoming User Prompt"]
+        --> B["Transformer Hidden Layers 1–12"]
+        --> C["Inject Activation Steering Vector (+α · v)"]
+        --> D["Transformer Layers 13–32 (Residual Stream)"]
+        --> E["Softmax Sampling Head"]
+        --> F["Clean Markdown Output"]
+    end
 ```
 
 ---
