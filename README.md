@@ -108,6 +108,17 @@ To advance this documentation repository, structural setup, or post-training pip
 * Generate a **comprehensive Markdown table** explicitly comparing Fine-Tuning (SFT), Parameter-Efficient Adapters (LoRA), Global RepE Steering, and Monosemantic SAE Dictionary Steering across compute training overhead, VRAM disk footprint, precision control boundaries, risk of collateral feature degradation, and target operational agility.
 * Establish a **performance profiling notebook using Triton** to track the exact wall-clock throughput and memory bus latency metrics achieved when fusing a multi-layer activation steering vector addition operation straight into a single-pass Transformer execution block.
 
+##  Star History
+<div align="center">
+<a href="https://www.star-history.com/?repos=ishandutta2007%2FAwesome-Steering-Vectors&type=date&legend=bottom-right">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Steering-Vectors&type=date&theme=dark&legend=bottom-right" />
+<source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Steering-Vectors&type=date&legend=bottom-right" />
+<img alt="Star History Chart" src="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Steering-Vectors&type=date&legend=bottom-right" />
+</picture>
+</a>
+</div>
+
 ***
 
 **Proactive Repository Follow-Ups:**
