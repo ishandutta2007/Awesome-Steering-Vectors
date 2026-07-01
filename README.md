@@ -18,15 +18,11 @@ flowchart LR
     --> C["Dictionary Steering via SAEs (2024-Present)<br/>(Monosemantic Ultra-Granular Concept Clamping)"]
 ```
 
-*   **The Supervised Concept Bottleneck Era (~2020–2022)**
-    *   *Concept:* The structural baseline. Early frameworks attempted to enforce internal concept control by bottlenecking neural layers into explicit, intermediate human-annotated property matrices before executing a terminal classification task.
-    *   *Limitation:* Highly rigid and unscalable, as it required extensive human marking arrays and could not parse abstract semantic layers inside generative transformers.
-*   **The Contrastive Representation Engineering Era (RepE, Zou et al., 2023)**
-    *   *Concept:* Brought robust directional steering to generative Large Language Models. Frameworks like **Representation Engineering (RepE)** treated model control as a geometric alignment task. By prompting a model with contrastive paired data (e.g., contrasting "truthful text statements" against "deceptive text statements"), engineers calculated the principal components of the intermediate hidden state activations, extracting a global **Activation Steering Vector**.
-    *   *Limitation:* Coarse and polysemantic. Because raw transformer hidden layers feature highly compressed, overlapping concepts (superposition), injecting a blunt steering vector could inadvertently corrupt unrelated features, causing localized capability decay.
-*   **The Dictionary Steering & Monosemantic Era (~2024–Present)**
-    *   *Concept:* The current modern state-of-the-art diagnostic standard. Overcomes the superposition bottleneck by deploying **Sparse Autoencoders (SAEs)** [INDEX: 2]. SAEs unwrap the compressed hidden states of an active model into an overcomplete dictionary containing millions of isolated, human-interpretable feature vectors [INDEX: 2].
-    *   *Significance:* Unlocks ultra-precise **Dictionary Steering**. Instead of shifting a massive, blurry directional field, engineers can precisely clamp or scale a single, monosemantic concept vector (e.g., clamping a feature node that tracks *only* "preventing corporate code injection attacks"), modifying execution loops without collateral feature corruption.
+| Era / Concept | Description | Year First Used | First Used Paper |
+| :--- | :--- | :--- | :--- |
+| **The Supervised Concept Bottleneck Era (~2020–2022)** | *Concept:* The structural baseline. Early frameworks attempted to enforce internal concept control by bottlenecking neural layers into explicit, intermediate human-annotated property matrices before executing a terminal classification task.<br><br>*Limitation:* Highly rigid and unscalable, as it required extensive human marking arrays and could not parse abstract semantic layers inside generative transformers. | 2018 | [Kim et al. (2018)](https://arxiv.org/abs/1711.11279) |
+| **The Contrastive Representation Engineering Era (RepE, Zou et al., 2023)** | *Concept:* Brought robust directional steering to generative Large Language Models. Frameworks like **Representation Engineering (RepE)** treated model control as a geometric alignment task. By prompting a model with contrastive paired data (e.g., contrasting "truthful text statements" against "deceptive text statements"), engineers calculated the principal components of the intermediate hidden state activations, extracting a global **Activation Steering Vector**.<br><br>*Limitation:* Coarse and polysemantic. Because raw transformer hidden layers feature highly compressed, overlapping concepts (superposition), injecting a blunt steering vector could inadvertently corrupt unrelated features, causing localized capability decay. | 2023 | [Zou et al. (2023)](https://arxiv.org/abs/2310.01405) |
+| **The Dictionary Steering & Monosemantic Era (~2024–Present)** | *Concept:* The current modern state-of-the-art diagnostic standard. Overcomes the superposition bottleneck by deploying **Sparse Autoencoders (SAEs)** [INDEX: 2]. SAEs unwrap the compressed hidden states of an active model into an overcomplete dictionary containing millions of isolated, human-interpretable feature vectors [INDEX: 2].<br><br>*Significance:* Unlocks ultra-precise **Dictionary Steering**. Instead of shifting a massive, blurry directional field, engineers can precisely clamp or scale a single, monosemantic concept vector (e.g., clamping a feature node that tracks *only* "preventing corporate code injection attacks"), modifying execution loops without collateral feature corruption. | 2024 | [Subramanian et al. (2024)](https://arxiv.org/abs/2404.14250) |
 
 ---
 
@@ -34,18 +30,11 @@ flowchart LR
 
 Steering Vector architectures are strictly categorized based on the mathematical space they target and how the scalar injection values are calculated.
 
-- ### A. Global Activation Steering (RepE Class)
-	*   **Mechanism:** Extracts a concept direction by capturing the delta between contrastive hidden states ($v = h_{\text{positive}} - h_{\text{negative}}$). During subsequent inference passes, the vector is scaled and added straight into target hidden layers:
-	    $$h'_l = h_l + \alpha \cdot v$$
-	*   **Pros:** Straightforward to calculate via simple low-resource prompt pairings, delivering instantaneous, broad shifts in model tone, sentiment, or compliance.
-
-- ### B. Monosemantic Dictionary Steering (SAE-Gated Clamping)
-	*   **Mechanism:** Routes the transformer hidden state through an overcomplete Sparse Autoencoder bottleneck layer [INDEX: 2]. The system isolates the exact index coordinate of a single conceptual feature and clamps its scalar value to a high tier [INDEX: 2].
-	*   **Pros:** Achieves microscopic control with zero linguistic degradation, isolating abstract entities flawlessly [INDEX: 2].
-
-- ### C. Function-Calling / Tool-Augmented Steering Vectors
-	*   **Mechanism:** Targets the specific activation gates that dictate when a model shifts state from natural conversation to function-calling token emission [INDEX: 12].
-	*   **Pros:** Dynamically forces or suppresses an autonomous agent's internal intent to invoke external software APIs based on corporate security thresholds.
+| Variant | Mechanism & Pros | Year First Used | First Used Paper |
+| :--- | :--- | :--- | :--- |
+| **A. Global Activation Steering (RepE Class)** | **Mechanism:** Extracts a concept direction by capturing the delta between contrastive hidden states ($v = h_{\text{positive}} - h_{\text{negative}}$). During subsequent inference passes, the vector is scaled and added straight into target hidden layers:<br>$$h'_l = h_l + \alpha \cdot v$$<br><br>**Pros:** Straightforward to calculate via simple low-resource prompt pairings, delivering instantaneous, broad shifts in model tone, sentiment, or compliance. | 2023 | [Zou et al. (2023)](https://arxiv.org/abs/2310.01405) |
+| **B. Monosemantic Dictionary Steering (SAE-Gated Clamping)** | **Mechanism:** Routes the transformer hidden state through an overcomplete Sparse Autoencoder bottleneck layer [INDEX: 2]. The system isolates the exact index coordinate of a single conceptual feature and clamps its scalar value to a high tier [INDEX: 2].<br><br>**Pros:** Achieves microscopic control with zero linguistic degradation, isolating abstract entities flawlessly [INDEX: 2]. | 2024 | [Subramanian et al. (2024)](https://arxiv.org/abs/2404.14250) |
+| **C. Function-Calling / Tool-Augmented Steering Vectors** | **Mechanism:** Targets the specific activation gates that dictate when a model shifts state from natural conversation to function-calling token emission [INDEX: 12].<br><br>**Pros:** Dynamically forces or suppresses an autonomous agent's internal intent to invoke external software APIs based on corporate security thresholds. | 2025 | [DeepSeek-AI (2025)](https://arxiv.org/abs/2412.19437) |
 
 ---
 
@@ -53,10 +42,10 @@ Steering Vector architectures are strictly categorized based on the mathematical
 
 Depending on the operational constraints of the runtime serving cluster, steering vector interventions are managed across distinct structural boundaries.
 
-*   **Multi-Layer Latent Injection Hooks**
-    *   *Profile:* Dictates vector depth. Concept neurons do not reside in a single layer; they expand across specific model horizons (e.g., semantic logic typically aggregates across middle layers 12 to 24 of a 32-layer transformer). The steering pipeline places software hooks across these specific layers, injecting the scalar offsets concurrently during the forward pass.
-*   **Prompt-Derived Virtual Vector Caching**
-    *   *Profile:* Bypasses mathematical dictionary calculations. It takes a highly descriptive instruction prompt (e.g., `"Write this document like a maximum-security regulatory auditor"`), runs a single forward pass to capture its terminal activation topology, saves that matrix slice as a **virtual steering vector**, and applies it as a constant bias to subsequent generic user prompts to skip prompt length inflation.
+| Injection Architecture / Caching Horizon | Profile | Year First Used | First Used Paper |
+| :--- | :--- | :--- | :--- |
+| **Multi-Layer Latent Injection Hooks** | *Profile:* Dictates vector depth. Concept neurons do not reside in a single layer; they expand across specific model horizons (e.g., semantic logic typically aggregates across middle layers 12 to 24 of a 32-layer transformer). The steering pipeline places software hooks across these specific layers, injecting the scalar offsets concurrently during the forward pass. | 2023 | [Zou et al. (2023)](https://arxiv.org/abs/2310.01405) |
+| **Prompt-Derived Virtual Vector Caching** | *Profile:* Bypasses mathematical dictionary calculations. It takes a highly descriptive instruction prompt (e.g., `"Write this document like a maximum-security regulatory auditor"`), runs a single forward pass to capture its terminal activation topology, saves that matrix slice as a **virtual steering vector**, and applies it as a constant bias to subsequent generic user prompts to skip prompt length inflation. | 2023 | [Zou et al. (2023)](https://arxiv.org/abs/2310.01405) |
 
 ```mermaid
 flowchart LR
@@ -76,23 +65,20 @@ flowchart LR
 
 Enforcing complex mathematical tensor modifications across live commercial cloud-serving layers introduces unique performance bottlenecks and stability boundaries.
 
-*   **The Latency-Overhead of Online Dictionary Projection**
-    *   *The Problem:* Routing model hidden layers through a massive overcomplete Sparse Autoencoder containing millions of hidden parameters before computing dictionary steering commands introduces severe processing latency, stalling token generation speeds [INDEX: 2].
-    *   *Mitigation:* Compiling the linear encoder projection, Top-K thresholding operator, vector addition, and down-projection loops directly into a single, hardware-fused **Triton or CUDA kernel execution block**, performing the math entirely within fast on-chip GPU SRAM registers [INDEX: 2].
-*   **The Representation Exploded Saturation Boundary**
-    *   *The Problem:* If an infrastructure script applies an excessively high scalar multiplier ($\alpha$) to a steering vector, it over-saturates the latent space. The model's hidden representation structure ruptures, causing it to output repetitive words, drop punctuation syntax, or collapse into infinite loops.
-    *   *Mitigation:* Implementing **Dynamic Activation Clipping boundaries**, automatically calculating the Euclidean norm of the hidden layer at runtime and clamping the steering vector scale so it never exceeds a safe fraction of the baseline activation scale.
+| Challenge | Details | Year First Used | First Used Paper |
+| :--- | :--- | :--- | :--- |
+| **The Latency-Overhead of Online Dictionary Projection** | *The Problem:* Routing model hidden layers through a massive overcomplete Sparse Autoencoder containing millions of hidden parameters before computing dictionary steering commands introduces severe processing latency, stalling token generation speeds [INDEX: 2].<br><br>*Mitigation:* Compiling the linear encoder projection, Top-K thresholding operator, vector addition, and down-projection loops directly into a single, hardware-fused **Triton or CUDA kernel execution block**, performing the math entirely within fast on-chip GPU SRAM registers [INDEX: 2]. | 2024 | [Subramanian et al. (2024)](https://arxiv.org/abs/2404.14250) |
+| **The Representation Exploded Saturation Boundary** | *The Problem:* If an infrastructure script applies an excessively high scalar multiplier ($\alpha$) to a steering vector, it over-saturates the latent space. The model's hidden representation structure ruptures, causing it to output repetitive words, drop punctuation syntax, or collapse into infinite loops.<br><br>*Mitigation:* Implementing **Dynamic Activation Clipping boundaries**, automatically calculating the Euclidean norm of the hidden layer at runtime and clamping the steering vector scale so it never exceeds a safe fraction of the baseline activation scale. | 2023 | [Zou et al. (2023)](https://arxiv.org/abs/2310.01405) |
 
 ---
 
 ## 5. Frontier Real-World AI Applications
 
-*   **Dynamic Enterprise Posture & Alignment Compliance Steering**
-    *   *Application:* Regulates large-scale corporate customer support bot deployments. Instead of building separate fine-tuned checkpoints for dozens of international brands, the infrastructure server maintains a library of lightweight, virtual steering vectors, dynamically injecting specific brand personas, compliance thresholds, and localized etiquette variables on-the-fly based on user account routing metadata.
-*   **Real-Time Guardrail Defense Against Adaptive Jailbreaks**
-    *   *Application:* Secures model endpoints against systemic prompt injection and automated coordinate exploits [INDEX: 19]. Security monitoring modules probe internal layers continuously; if an adversarial prompt attempts to trigger an internal "malware formulation" or "unauthorized tool dispatch" feature cluster, the steering controller injects a negative suppression vector, neutralizing the exploit inside the hidden layers before output characters are ever generated [INDEX: 2].
-*   **Offline Corporate Anomaly Detection & Concept Auditing**
-    *   *Application:* Audits internal model behavioral alignment over production life cycles. By using steering vectors as continuous diagnostic probes, compliance architectures run targeted vector-shifting cycles to systematically stress-test networks, identifying hidden biases, deceptive capabilities, or unvetted parameter drift inside hidden layers reliably.
+| Application | Details | Year First Used | First Used Paper |
+| :--- | :--- | :--- | :--- |
+| **Dynamic Enterprise Posture & Alignment Compliance Steering** | *Application:* Regulates large-scale corporate customer support bot deployments. Instead of building separate fine-tuned checkpoints for dozens of international brands, the infrastructure server maintains a library of lightweight, virtual steering vectors, dynamically injecting specific brand personas, compliance thresholds, and localized etiquette variables on-the-fly based on user account routing metadata. | 2023 | [Zou et al. (2023)](https://arxiv.org/abs/2310.01405) |
+| **Real-Time Guardrail Defense Against Adaptive Jailbreaks** | *Application:* Secures model endpoints against systemic prompt injection and automated coordinate exploits [INDEX: 19]. Security monitoring modules probe internal layers continuously; if an adversarial prompt attempts to trigger an internal "malware formulation" or "unauthorized tool dispatch" feature cluster, the steering controller injects a negative suppression vector, neutralizing the exploit inside the hidden layers before output characters are ever generated [INDEX: 2]. | 2023 | [Zou et al. (2023)](https://arxiv.org/abs/2310.01405) |
+| **Offline Corporate Anomaly Detection & Concept Auditing** | *Application:* Audits internal model behavioral alignment over production life cycles. By using steering vectors as continuous diagnostic probes, compliance architectures run targeted vector-shifting cycles to systematically stress-test networks, identifying hidden biases, deceptive capabilities, or unvetted parameter drift inside hidden layers reliably. | 2023 | [Zou et al. (2023)](https://arxiv.org/abs/2310.01405) |
 
 ---
 
