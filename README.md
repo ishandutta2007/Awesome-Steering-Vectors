@@ -31,18 +31,18 @@ The technical framework governing model representation manipulation has transiti
 
 Steering Vector architectures are strictly categorized based on the mathematical space they target and how the scalar injection values are calculated.
 
-### A. Global Activation Steering (RepE Class)
-*   **Mechanism:** Extracts a concept direction by capturing the delta between contrastive hidden states ($v = h_{\text{positive}} - h_{\text{negative}}$). During subsequent inference passes, the vector is scaled and added straight into target hidden layers:
-    $$h'_l = h_l + \alpha \cdot v$$
-*   **Pros:** Straightforward to calculate via simple low-resource prompt pairings, delivering instantaneous, broad shifts in model tone, sentiment, or compliance.
+- ### A. Global Activation Steering (RepE Class)
+	*   **Mechanism:** Extracts a concept direction by capturing the delta between contrastive hidden states ($v = h_{\text{positive}} - h_{\text{negative}}$). During subsequent inference passes, the vector is scaled and added straight into target hidden layers:
+	    $$h'_l = h_l + \alpha \cdot v$$
+	*   **Pros:** Straightforward to calculate via simple low-resource prompt pairings, delivering instantaneous, broad shifts in model tone, sentiment, or compliance.
 
-### B. Monosemantic Dictionary Steering (SAE-Gated Clamping)
-*   **Mechanism:** Routes the transformer hidden state through an overcomplete Sparse Autoencoder bottleneck layer [INDEX: 2]. The system isolates the exact index coordinate of a single conceptual feature and clamps its scalar value to a high tier [INDEX: 2].
-*   **Pros:** Achieves microscopic control with zero linguistic degradation, isolating abstract entities flawlessly [INDEX: 2].
+- ### B. Monosemantic Dictionary Steering (SAE-Gated Clamping)
+	*   **Mechanism:** Routes the transformer hidden state through an overcomplete Sparse Autoencoder bottleneck layer [INDEX: 2]. The system isolates the exact index coordinate of a single conceptual feature and clamps its scalar value to a high tier [INDEX: 2].
+	*   **Pros:** Achieves microscopic control with zero linguistic degradation, isolating abstract entities flawlessly [INDEX: 2].
 
-### C. Function-Calling / Tool-Augmented Steering Vectors
-*   **Mechanism:** Targets the specific activation gates that dictate when a model shifts state from natural conversation to function-calling token emission [INDEX: 12].
-*   **Pros:** Dynamically forces or suppresses an autonomous agent's internal intent to invoke external software APIs based on corporate security thresholds.
+- ### C. Function-Calling / Tool-Augmented Steering Vectors
+	*   **Mechanism:** Targets the specific activation gates that dictate when a model shifts state from natural conversation to function-calling token emission [INDEX: 12].
+	*   **Pros:** Dynamically forces or suppresses an autonomous agent's internal intent to invoke external software APIs based on corporate security thresholds.
 
 ---
 
